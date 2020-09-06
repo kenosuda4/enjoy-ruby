@@ -9,5 +9,5 @@ z = 30 # 高さ
 area = (x*y + y*x + z*x) * 2
 volume = x * y * z
 
-puts area
-puts volume
+print "表面積 = ", area,"\n"
+print "体積 = ", volume, "\n"
