@@ -1,0 +1,8 @@
+books =[
+    {title: "猫町", outher:"萩原朔太郎"},
+    {title: "猫の事務所", outher:"宮沢賢治"},
+    {title: "猫語の教科書", outher:"ポール・ギャリコ"}
+]
+
+p books
+pp books
