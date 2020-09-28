@@ -108,10 +108,125 @@
     文
   end
  といった構成
- if文では条件がtrueの時に文を表示していましたが、unless文は条件がfalseの時に
- 文を実行します
+ if文では条件がtrueの時に文を表示していたが、unless文は条件がfalseの時に
+ 文を実行する
  unless.rb参照
+
+5.6 case文
+ 条件がいくつもある場合はif elsifとの組み合わせでそれぞれの条件をかけるが、
+ 比較したいおジェクトが一つだけでそのオブジェクトの値によって場合分したい場合はcase文の方がわかりやすい。
+
+ case 比較したいオブジェクト
+ when 値1 then
+   文1
+ when 値2 then
+   文2
+ when 値3 then
+   文3
+ else
+   文4
+ end
+  case.rb参照
+  case_class.rb参照
+
+ コラム 
+ case文はwhenで指定した値に一致するかどうかを ===　という演算子を使って判定している
+ ===　は左辺が数値や文字列の場合は == と同じ意味をのもつが、正規表現の場合は　＝〜と同じように
+ マッチしたかどうかの判定を、クラスの場合は右辺がそのクラスのインスタンス判定するなど、
+ 両辺の [値] を比較するよりももう少し緩い意味で同じかどうか判定する。
+
+  case value
+  when a
+   puts "a"
+  when b
+   puts "b"
+  else
+   puts "c"
+  end
+
+  ↑これと
+  ↓これは同じ意味
+
+  if a === value
+   puts "a"
+  elsif b
+   puts "b"
+  else
+   puts "c"
+  end
+  
  
+5.7 if修飾子とunless文
+ ifやunlessは
+  puts "aよりbのほうがが大きい" if a > b
+ のように実行したい処理の後ろに書くこともできる.
+  if a > b
+   puts "aよりbのほうがが大きい" if a > b
+  end
+ これと同じ意味になる。
 
+5.8 まとめ　ここはパス
 
-
+コラム オブジェクトの同一性
+ 全てのオブジェクトはアイデンティティと値を持っている
+ アイデンティティ(ID）はオブジェクトの同一性を表すもの
+ idはobject_idメソッドで得ることができる
+  例
+   irb(main):004:0> ary1 = []
+   => []
+   irb(main):005:0> ary2 = []
+   => []
+   irb(main):006:0> p ary1.object_id
+   70265589689320
+   => 70265589689320
+   irb(main):007:0> p ary2.object_id
+   70265589715600
+   => 70265589715600
+ ２つのオブジェクトが同じかどうか(idが同じかどうか)はequal？メソッドで判定できる。
+  例
+   irb(main):008:0> str1 = "foo"
+   => "foo"
+   irb(main):009:0> str2 = str1
+   => "foo"
+   irb(main):010:0> str3 = "f" + "o" + "o"
+   => "foo"
+   irb(main):011:0> p str1.equal?(str2)
+   true
+   => true
+   irb(main):012:0> p str1.equal?(str3)
+   false
+   => false
+ 値はオブジェクトが持っている情報のこと。
+ 内容が同じ文字列は同じ値を持っている
+ オブジェクトの値が等しいかは ＝＝　を使用する
+  例
+  　irb(main):013:0> str1 = "foo"
+    => "foo"
+    irb(main):014:0> str2 = "f" + "o" + "o"
+    => "foo"
+    irb(main):015:0> p  str1 == str2
+    true
+    => true
+ ＝＝　とは別に値が同じかどうか判断できるeql?メソッドがある。
+ eql?と＝＝は共にobjectクラスのメソッドとして定義されて、たいていの場合同じ
+ 振舞いをするが、数値クラスではこれらが再定義されているので異なる振舞いをする
+  例 
+   irb(main):020:0> p 1.0 == 1
+   true
+   => true
+   irb(main):021:0> p 1.0.eql?(1)
+   false
+   => false
+ == は普通のプログラム中で値を比較する時に使われる
+ eql?メソッドは多少厳密に比較を行う必要がある場合に用いられる
+ たとえば、ハッシュのキーとしての0と0.0は別のものとして扱われるが、
+ ハッシュオブジェクト内部ではeql?メソッドを使用し比較が行われるから
+ irb(main):026:0> hash = {0=>"zero"}
+ => {0=>"zero"}
+ irb(main):027:0> p hash[0.0]
+ nil
+ => nil
+ irb(main):028:0> p hash[0]
+ "zero"
+ => "zero"
+ irb(main):0
