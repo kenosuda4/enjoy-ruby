@@ -80,7 +80,12 @@
    for i in from..tosum = sum + in
   end
   puts sum
-
-
+ 
+  timesメソッドを使用するよりシンプルにかける
+  sum = sum + i は
+  sum += i と書くこともできる
+  引き算や掛け算なども同じように省略できる
+  a -= b
+  a *= b
   
 
