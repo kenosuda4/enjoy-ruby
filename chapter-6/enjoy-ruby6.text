@@ -170,7 +170,21 @@
   break: 繰り返しを中断し、繰り返しの中から抜ける
   next : 次の回の繰り返しに処理を移す
   redo : 同じ条件の繰り返しをやり直す
+
   
+6.11.1 break
+ breakは繰り返し全体を中断
+ break_next.rb参
+ ten_line_grep.rb参照
+
+6.11.2 next
+ nextは繰り返しの中でnext以降の部分を飛ばして次の会に処理を飛ばす
+ 以下参照 
+ break_next.rb
+ strip.rb
+ hello.rb
+ stripped_hello.rb
+
 
 
 
