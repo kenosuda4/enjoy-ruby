@@ -185,6 +185,20 @@
  hello.rb
  stripped_hello.rb
 
+おまけ
+ do~end {~}の違い
+ do ~ end 複数行にわたって処理を描く時
+ {~}      1行に処理を描く時
+
+ 10.times do |i|
+  puts i
+ end
+
+ 10.times {|i| puts i}
+
+ 見やすさの問題
+
+
 
 
 
