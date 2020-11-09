@@ -41,15 +41,23 @@ file.close               # ファイルを閉じる
 
 
 =begin
- # ファイルの中から特定のパターンの行のみ出力する
- pattern = Regexp.new(ARGV[5]) 
- filename = ARGV[6]
+ # ファイルの中から特定のパターンの行のみ出力する (simple_grep.rb)
+ pattern = Regexp.new(ARGV[5]) #引数ARGVを元に正規表現オブジェクトを作る(Regexp.new(str))
+ filename = ARGV[6] #引数ARGVでファイル名に使う変数filenameに代入する
  
- file = File.open(filename)
- file.each_line do |line|
-     if pattern = ~line
-         print line
-     end
+ file = File.open(filename) # 変数filenameに代入されたファイルを開く
+ file.each_line do |line| # 開いたファイルを1行ずつ読み込み、ブロック変数に代入
+     if pattern = ~line # 条件分岐 patternに代入された正規表現オブジェクトにマッチした場合
+         print line # lineに代入された文字列を表示
+     end 
  end
- file.close
+ file.close ファイルを閉じる
+=end
+
+=begin
+ 別のファイルを読み込む
+ require 使いたいファイルのファイル名
+  または
+ require_relative 使いたいファイツのファイル名
+ 
 =end
