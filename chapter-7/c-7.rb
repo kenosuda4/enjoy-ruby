@@ -29,7 +29,7 @@ File.rename(古いフィアル名, 新しいファイル名)
 
 # 関数的メソッド レシーバがないメソッド(実際にないわけではなく、省略されている)
 print "good night\n" 
-sleep(3)               # 処理を()ないの時間止める 秒
+sleep(1)               # 処理を()ないの時間止める 秒
 print "good moring\n"
 
 # メソッドの定義
@@ -66,3 +66,24 @@ end
 
 p area(2, 3 ,4)
 p area(10, 30, 20)
+
+# def max(mx, mn)
+#     if mx > mn
+#         mx
+#     else
+#         mn
+#     end
+# end
+
+# p max(10, 5)
+# 上としたの違いはreturnを使用しているか否か(出力結果は同じ)
+def max(mx, mn)
+    if mx > mn
+       return  mx
+    end
+    return mn # returnは省略可能
+end
+p max(10, 5)
+
+# 引数を省略するとnilが帰ってくる 
+p print("1:")
